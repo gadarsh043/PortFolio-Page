@@ -1,8 +1,12 @@
+import { Flex, Text, Button } from "@radix-ui/themes";
 function Home() {
     return (
-        <div>
-            Adarsh&apos;s Boiler Page
-        </div>
+		<Flex direction="column" gap="2">
+			<Text>Adarsh&apos;s Portfolio</Text>
+			<Button onClick={() => console.log('Button clicked!')}>
+                Lets go
+            </Button>
+		</Flex>
     )
 }
 

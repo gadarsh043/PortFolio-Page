@@ -4,8 +4,8 @@ function Home() {
 		<Flex direction="column" gap="2">
 			<Text>Adarsh&apos;s Portfolio</Text>
 			<Button onClick={() => console.log('Button clicked!')}>
-                Lets go
-            </Button>
+          Lets go
+      </Button>
 		</Flex>
     )
 }

@@ -1,0 +1,12 @@
+.pdf-div {
+    .react-pdf__Document {
+        .react-pdf__Page {
+            display: flex;
+            justify-content: center;
+            &__canvas {
+                width: 65% !important;
+                height: auto !important;
+            }
+        }
+    }
+}

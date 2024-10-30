@@ -2,6 +2,7 @@ import * as Avatar from "@radix-ui/react-avatar";
 import './scss/navbar.scss'
 import * as Menubar from "@radix-ui/react-menubar";
 import { useNavigate } from 'react-router-dom';
+import profilePic from '@/assets/my_dp.png'
 
 function Navbar() {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ function Navbar() {
                 <Avatar.Root className="AvatarRoot" onClick={() => navigate('/')}>
                     <Avatar.Image
                         className="AvatarImage"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv1xcrJic5LJxi8p22eNZ77EYppTjTxRkSBA&s"
+                        src={profilePic}
                         alt="G Adarsh Sonu"
                     />
                 </Avatar.Root>

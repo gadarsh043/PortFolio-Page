@@ -1,0 +1,20 @@
+.imageContainer {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    min-height: 500px;
+    &-main, &-cartoon {
+        width: 70%;
+        max-height: 500px;
+        position: absolute;
+    }
+  
+    &-main {
+        z-index: 50;
+    }
+  
+    &-cartoon {
+        z-index: 49;
+    }
+}

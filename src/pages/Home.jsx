@@ -1,13 +1,58 @@
-import { Flex, Text, Button } from "@radix-ui/themes";
+import { Flex, Blockquote, Strong, Link } from "@radix-ui/themes";
+import mainImage from '@/assets/Portfolio.png'
+// https://www.befunky.com/create/cartoonizer/
+import cartoonImage from '@/assets/Portfolio - cartoon.png'
+import { useState } from 'react';
+import './scss/home.scss'
+
 function Home() {
-    return (
-		<Flex direction="column" gap="2">
-			<Text>Adarsh&apos;s Portfolio</Text>
-			<Button onClick={() => console.log('Button clicked!')}>
-          Lets go
-      </Button>
-		</Flex>
-    )
+  const [mainWidth, setMainWidth] = useState(50);
+  
+  const handleMouseMove = (e) => {
+      const containerWidth = e.currentTarget.offsetWidth;
+      const mouseX = e.clientX - e.currentTarget.getBoundingClientRect().left;
+
+      const newMainWidth = Math.min(Math.max((mouseX / containerWidth) * 100, 0), 100);
+      setMainWidth(100 - newMainWidth);
+  };
+
+  const handleMouseLeave = () => {
+    setMainWidth(50);
+  };
+
+  const opacity = mainWidth>50 ? (150 - mainWidth) : 100;
+  return (
+    <Flex direction="column" gap="2">
+      <div className="imageContainer" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <img src={mainImage} alt="Main Image" className="imageContainer-main" style={{clipPath: `polygon(0 0, ${mainWidth}% 0, ${mainWidth}% 100%, 0 100%)`, opacity: `${mainWidth + 80}%`}} />
+        <img src={cartoonImage} alt="Cartoon Image" className="imageContainer-cartoon" style={{opacity: `${opacity}%`}} />
+      </div>
+      <br />
+      <br />
+      <Blockquote size="5">
+        Hi, I’m <Strong>Adarsh Gella!</Strong>
+        <br />
+        I’m a student at <Link href="https://www.utdallas.edu/fact-sheets/ecs/ms-computer-science/" underline="hover" target="blank">UTD</Link>, currently pursuing a master’s in Computer Science. <br />
+        I’m really passionate about front-end development, especially when it comes to <br />
+        creating intuitive and engaging user interfaces. Right now, I’m working on some new <br />
+        <Link href="https://github.com/gadarsh043?tab=repositories" underline="hover" target="blank">UI projects</Link> and also developing content for my <Link href="https://www.youtube.com/@g_adarsh_sonu" underline="hover" target="blank">YouTube channel</Link>.
+
+        <br />
+        <br />
+        I love exploring new tech, coding, and user experience. When I’m not coding, <br />
+        you’ll probably catch me watching a ton of movies or series, capturing moments for <br />
+         my YouTube channel,or just dancing around with my friends.
+
+        <br />
+        <br />
+        I enjoy sharing insights about coding practices, discussing new ideas, recommending my <br />
+        <Link href="https://www.imdb.com/user/ur129777024/lists/" underline="hover" target="blank">latest movie finds</Link>, or talking about my <Link href="https://www.youtube.com/@g_adarsh_sonu" underline="hover" target="blank">YouTube channel</Link>. I’m all in! Hit me up on <Link href="https://www.linkedin.com/in/g-adarsh-sonu/" underline="hover" target="blank">LinkedIn</Link>, <Link href="mailto:g.adarsh043@gmail.com" target="blank" underline="hover">Gmail</Link>, or <br />
+        <Link href="https://www.instagram.com/g_adarsh_sonu/" underline="hover" target="blank">Instagram</Link>—let’s connect and chat about what we’re into!
+      </Blockquote>
+      <br />
+      <br />
+    </Flex>
+  )
 }
 
 export default Home

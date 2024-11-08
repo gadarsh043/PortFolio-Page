@@ -1,0 +1,27 @@
+.circadian {
+    display: flex;
+    height: 70px;
+    &-seperatorBlock {
+        width: 30px;
+        display: flex;
+        position: relative;
+        align-items: flex-end;
+        justify-content: center;
+    }
+}
+
+.seperator {
+    height: 32px;
+    width: 3px !important;
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.modeImage {
+    top: -35px;
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: hsla(172, 95%, 18%, 1);
+}

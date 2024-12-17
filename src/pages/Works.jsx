@@ -14,7 +14,7 @@ function works() {
             description: "A dynamic blogging platform with real-time updates.",
             tech: "Vue, Firebase, SCSS",
             github: "https://github.com/gadarsh043/blogPage",
-            live: "https://g-akarsh-monu.netlify.app/"
+            live: "https://g-adarsh-sonu.netlify.app/"
         },
         { 
             name: "PhotoShare",

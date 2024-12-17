@@ -1,8 +1,8 @@
 import { Flex, Blockquote, Strong, Link } from "@radix-ui/themes";
-import mainImage from '@/assets/Portfolio.png'
+import mainImage from '@/assets/PortFolio.png'
 // https://www.befunky.com/create/cartoonizer/
 // Small Icons from - Flaticon
-import cartoonImage from '@/assets/Portfolio - cartoon.png'
+import cartoonImage from '@/assets/PortFolio - cartoon.png'
 import { useState } from 'react';
 import './scss/home.scss'
 

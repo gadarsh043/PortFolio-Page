@@ -6,7 +6,7 @@ import lightMode from '../assets/light-mode.png'
 import { Flex, Separator } from "@radix-ui/themes";
 
 function Circadian({appearance, toggleAppearance}) {
-    const [fixheightForId, setFixHeightForId] = useState(10)
+    const [fixheightForId, setFixHeightForId] = useState(6)
     const [currentId, setCurrentId] = useState(fixheightForId);
     const timeoutRef = useRef(null);
 

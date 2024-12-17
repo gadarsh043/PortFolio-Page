@@ -25,8 +25,8 @@ function Home() {
   return (
     <Flex direction="column" gap="2">
       <div className="imageContainer" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-        <img src={mainImage} alt="Main Image" className="imageContainer-main" style={{clipPath: `polygon(0 0, ${mainWidth}% 0, ${mainWidth}% 100%, 0 100%)`, opacity: `${mainWidth + 80}%`}} />
-        <img src={cartoonImage} alt="Cartoon Image" className="imageContainer-cartoon" style={{opacity: `${opacity}%`}} />
+        <img src={mainImage} alt="Main Image" className="imageContainer-main" style={{clipPath: `polygon(0 0, ${mainWidth}% 0, ${mainWidth}% 100%, 0 100%)`, opacity: `${mainWidth + 80}%`, borderRadius: '15px'}} />
+        <img src={cartoonImage} alt="Cartoon Image" className="imageContainer-cartoon" style={{opacity: `${opacity}%`, borderRadius: '15px'}} />
       </div>
       <br />
       <br />

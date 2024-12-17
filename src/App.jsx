@@ -13,7 +13,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 function App() {
-  const [appearance, setAppearance] = useState('light')
+  const [appearance, setAppearance] = useState('dark')
 
   const toggleAppearance = (changeTo) => {
     setAppearance(changeTo);

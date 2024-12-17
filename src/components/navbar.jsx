@@ -26,7 +26,7 @@ function Navbar() {
                     <Menubar.Menu>
                         <Menubar.Trigger className={`MenubarTrigger ${isActive('/') ? 'active' : ''}`} onClick={() => navigate('/')}>Home</Menubar.Trigger>|
                         <Menubar.Trigger className={`MenubarTrigger ${isActive('/resume') ? 'active' : ''}`} onClick={() => navigate('/resume')}>Resume</Menubar.Trigger>|
-                        <Menubar.Trigger className={`MenubarTrigger ${isActive('/works') ? 'active' : ''}`} onClick={() => navigate('/works')}>Works</Menubar.Trigger>|
+                        <Menubar.Trigger className={`MenubarTrigger ${isActive('/projects') ? 'active' : ''}`} onClick={() => navigate('/projects')}>Projects</Menubar.Trigger>|
                         <Menubar.Trigger className="MenubarTrigger" onClick={() => window.open('https://www.youtube.com/@g_adarsh_sonu', '_blank')}>
                             Youtube
                         </Menubar.Trigger>|

@@ -1,5 +1,5 @@
 import { Flex, Card, Text, Button, Separator } from "@radix-ui/themes";
-import './scss/works.scss';
+import './scss/projects.scss';
 
 function works() {
     const projects = [
@@ -66,7 +66,7 @@ function works() {
 
   return (
     <Flex direction="column" className="works" style={{paddingTop: '0px'}}>
-      <Text size="8" weight="bold" className="title" style={{display: 'flex', justifyContent: 'center', padding: '20px'}}>My Works</Text>
+      <Text size="8" weight="bold" className="title" style={{display: 'flex', justifyContent: 'center', padding: '20px'}}>My Projects</Text>
       <Separator />
       <Flex wrap="wrap" gap="4" justify="center">
         {projects.map((proj, index) => (

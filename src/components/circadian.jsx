@@ -1,6 +1,6 @@
 import './scss/circadian.scss'
 import PropTypes from 'prop-types';
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import darkMode from '../assets/dark-mode.png'
 import lightMode from '../assets/light-mode.png'
 import { Flex, Separator } from "@radix-ui/themes";
@@ -9,6 +9,12 @@ function Circadian({appearance, toggleAppearance}) {
     const [fixheightForId, setFixHeightForId] = useState(6)
     const [currentId, setCurrentId] = useState(fixheightForId);
     const timeoutRef = useRef(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoaded(true), 5000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleMouseEnter = (event) => {
         if (timeoutRef.current) {
@@ -56,6 +62,9 @@ function Circadian({appearance, toggleAppearance}) {
         { id: "23" }, { id: "24" }, { id: "25" }, { id: "26" }, { id: "27" }, { id: "28" }
     ];
 
+    if (!isLoaded) {
+        return null;
+    }
     return (
         <Flex justify="center" className="circadian">
             {separators.map(({ id, color }) => (

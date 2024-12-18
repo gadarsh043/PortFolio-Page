@@ -1,4 +1,12 @@
 [[redirects]]
+# Redirect root domain to www domain with a 301 permanent redirect
+from = "http://adarshgella.com/*"
+to = "https://www.adarshgella.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+# SPA routing: redirect all paths to index.html
 from = "/*"
 to = "/index.html"
 status = 200

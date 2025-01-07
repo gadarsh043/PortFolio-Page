@@ -6,13 +6,13 @@ import lightMode from '../assets/light-mode.png'
 import { Flex, Separator } from "@radix-ui/themes";
 
 function Circadian({appearance, toggleAppearance}) {
-    const [fixheightForId, setFixHeightForId] = useState(6)
+    const [fixheightForId, setFixHeightForId] = useState(6);
     const [currentId, setCurrentId] = useState(fixheightForId);
     const timeoutRef = useRef(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => setIsLoaded(true), 5000);
+        const timer = setTimeout(() => setIsLoaded(true), 0);
         return () => clearTimeout(timer);
     }, []);
 
@@ -68,7 +68,7 @@ function Circadian({appearance, toggleAppearance}) {
     return (
         <Flex justify="center" className="circadian">
             {separators.map(({ id, color }) => (
-                <div key={id} id={id} className="circadian-seperatorBlock" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => changeAppearance(parseInt(id))}>
+                <div key={id} id={id} className="circadian-seperatorBlock" onMouseEnter={(event) => {changeAppearance(parseInt(id));handleMouseEnter(event);}} onMouseLeave={handleMouseLeave}>
                     {renderModeIcon(id)}
                     <Separator
                         className="seperator"

@@ -1,4 +1,9 @@
 .pdf-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    font-size: 18px;
     .react-pdf__Document {
         .react-pdf__Page {
             display: flex;

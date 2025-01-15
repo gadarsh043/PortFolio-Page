@@ -11,7 +11,6 @@ function Projects() {
       const fetchProjects = async () => {
           const querySnapshot = await getDocs(collection(db, "projects"));
           const projectsData = querySnapshot.docs.map(doc => doc.data());
-          console.log(projectsData);
           setProjects(projectsData);
       };
 
@@ -27,10 +26,10 @@ function Projects() {
           <Card key={index} className="project-card">
             <Text weight="bold">{proj.name}</Text>
             <br />
-            <Text style={{display: 'flex', height: '50px', justifyContent: 'center'}}>{proj.description}</Text>
+            <Text style={{display: 'flex', minHeight: '60px', justifyContent: 'center'}}>{proj.description}</Text>
             <Text size="1">Tech Stack: {proj.tech}</Text>
             <br />
-            <Flex gap="3" marginTop="2" style={{display: 'flex', justifyContent: 'center'}}>
+            <Flex gap="3" margintop="2" style={{display: 'flex', justifyContent: 'center'}}>
               <Button onClick={() => window.open(proj.github, '_blank')}>GitHub</Button>
               {proj.live && proj.live !== "null"  && <Button onClick={() => window.open(proj.live, '_blank')}>Live Demo</Button>}
             </Flex>

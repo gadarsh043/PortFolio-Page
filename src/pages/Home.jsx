@@ -5,6 +5,7 @@ import mainImage from '@/assets/PortFolio.png'
 import cartoonImage from '@/assets/PortFolio - cartoon.png'
 import { useState } from 'react';
 import './scss/home.scss'
+import myRoutine from '../assets/myRoutine.png'
 
 function Home() {
   const [mainWidth, setMainWidth] = useState(50);
@@ -23,7 +24,7 @@ function Home() {
 
   const opacity = mainWidth>50 ? (150 - mainWidth) : 100;
   return (
-    <Flex direction="column" gap="2">
+    <Flex direction="column" gap="2" style={{ position: 'relative'}}>
       <div className="imageContainer" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
         <img src={mainImage} alt="Main Image" className="imageContainer-main" style={{clipPath: `polygon(0 0, ${mainWidth}% 0, ${mainWidth}% 100%, 0 100%)`, opacity: `${mainWidth + 80}%`, borderRadius: '15px'}} />
         <img src={cartoonImage} alt="Cartoon Image" className="imageContainer-cartoon" style={{opacity: `${opacity}%`, borderRadius: '15px'}} />
@@ -50,6 +51,7 @@ function Home() {
         <Link href="https://www.imdb.com/user/ur129777024/lists/" underline="hover" target="blank">latest movie finds</Link>, or talking about my <Link href="https://www.youtube.com/@g_adarsh_sonu" underline="hover" target="blank">YouTube channel</Link>. I’m all in! Hit me up on <Link href="https://www.linkedin.com/in/g-adarsh-sonu/" underline="hover" target="blank">LinkedIn</Link>, <Link href="mailto:g.adarsh043@gmail.com" target="blank" underline="hover">Gmail</Link>, or <br />
         <Link href="https://www.instagram.com/g_adarsh_sonu/" underline="hover" target="blank">Instagram</Link>—let’s connect and chat about what we’re into!
       </Blockquote>
+      <img className="myRoutine" style={{ width: '400px', height: '400px', position: 'absolute', bottom: '-80px', right: '60px'}} src={myRoutine} />
       <br />
       <br />
     </Flex>

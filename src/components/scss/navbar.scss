@@ -69,3 +69,39 @@ button {
 	object-fit: cover;
 	border-radius: inherit;
 }
+
+.toggleAppearance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.themeToggleSwitch {
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    transition: background 0.3s ease-in-out;
+
+    &.light {
+        background-color: white;
+        justify-content: flex-start;
+    }
+
+    &.dark {
+        background-color: #f7f7f7;
+        justify-content: flex-end;
+    }
+
+    .themeIcon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        transition: transform 0.3s ease-in-out;
+    }
+}
+

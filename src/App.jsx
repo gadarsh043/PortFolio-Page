@@ -22,7 +22,7 @@ function App() {
   return (
     <Theme accentColor="grass" appearance={appearance}>
       <Router>
-        <Navbar />
+        <Navbar appearance={appearance} toggleAppearance={toggleAppearance}  />
         <br />
         <AppRoutes />
         <br />

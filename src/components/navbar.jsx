@@ -3,12 +3,16 @@ import './scss/navbar.scss'
 import * as Menubar from "@radix-ui/react-menubar";
 import { useNavigate, useLocation } from 'react-router-dom';
 import profilePic from '@/assets/my_dp.png'
+import PropTypes from 'prop-types';
+import lightModeIcon from '@/assets/light-mode2.png';
+import darkModeIcon from '@/assets/dark-mode.png';
 
-function Navbar() {
+function Navbar({ appearance, toggleAppearance }) {
     const navigate = useNavigate();
     const location = useLocation();
 
     const isActive = (path) => location.pathname === path;
+    const isDarkMode = appearance === 'dark';
     
     return (
         <div className="navbar">
@@ -34,7 +38,26 @@ function Navbar() {
                     </Menubar.Menu>
                 </Menubar.Root>
             </div>
+            {location.pathname === '/'
+                ? null
+                : 
+                <div className="toggleAppearance" onClick={() => toggleAppearance(isDarkMode ? 'light' : 'dark')}>
+                    <div className={`themeToggleSwitch ${isDarkMode ? 'dark' : 'light'}`}>
+                        <img 
+                            src={isDarkMode ? darkModeIcon : lightModeIcon} 
+                            alt={isDarkMode ? "Dark Mode" : "Light Mode"} 
+                            className="themeIcon"
+                        />
+                    </div>
+                </div>
+            }
         </div>
     )
 }
+
+Navbar.propTypes = {
+    appearance: PropTypes.string,
+    toggleAppearance: PropTypes.func
+};
+
 export default Navbar;

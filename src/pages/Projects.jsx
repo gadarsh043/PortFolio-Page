@@ -11,6 +11,7 @@ function Projects() {
       const fetchProjects = async () => {
           const querySnapshot = await getDocs(collection(db, "projects"));
           const projectsData = querySnapshot.docs.map(doc => doc.data());
+          projectsData.sort((a,b) => a.order - b.order);
           setProjects(projectsData);
       };
 

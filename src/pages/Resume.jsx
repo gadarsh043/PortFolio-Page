@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Document, Page } from 'react-pdf';
-import './scss/resume.scss'
+import './scss/resume.scss';
 
 function Resume() {
   const [pdfUrl, setPdfUrl] = useState("");
@@ -14,8 +14,12 @@ function Resume() {
 
   const [pageNumber] = useState(1);
 
+  const handleDownload = () => {
+    window.open(pdfUrl, "_blank");
+  };
+
   return (
-    <div className='pdf-div'>
+    <div className='pdf-div' onClick={handleDownload}>
       {pdfUrl && <Document file={pdfUrl}>
         <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
       </Document>}

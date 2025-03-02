@@ -30,6 +30,7 @@ function App() {
       fontSize: "24px",
       fontWeight: "bold",
       color: "red",
+      textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
     },
     text: {
       fontSize: "18px",

@@ -105,3 +105,62 @@ button {
     }
 }
 
+
+.mweb {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&_menu {
+		width: 30px;
+		height: 30px;
+		color: white;
+		cursor: pointer;
+	}
+	.mobileMenu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 250px;
+		height: 100vh;
+		background: #222;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: start;
+		padding-top: 50px;
+		box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+		transition: transform 0.3s ease-in-out;
+		z-index: 1000;
+	}
+	.closeMenu {
+		width: 25px;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		cursor: pointer;
+	}
+	.MenubarTrigger {
+		padding: 10px 0;
+		width: 100%;
+		text-align: center;
+		color: white;
+		text-decoration: none;
+		cursor: pointer;
+		&.active {
+		  color: var(--primary-color);
+		}
+	}
+	.MenubarTrigger:hover {
+		background: #444;
+	}
+	.MenubarRoot {
+		padding: 3px;
+		display: flex;
+		font-size: 25px;
+		box-shadow: unset;
+		border-radius: 10px;
+		flex-direction: column;
+		background-color: unset;
+	}
+}

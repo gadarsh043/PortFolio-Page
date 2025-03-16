@@ -19,3 +19,16 @@
         }
     }
 }
+.mwebPdf {
+    justify-content: unset;
+    align-items: unset;
+    padding-top: 100px;
+    padding-top: 50px;
+    .react-pdf__Document {
+        .react-pdf__Page {
+            &__canvas {
+                width: 100% !important;
+            }
+        }
+    }
+}

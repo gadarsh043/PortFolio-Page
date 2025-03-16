@@ -4,10 +4,11 @@ import youtubeIcon from "@/assets/youtube.png";
 import gmailIcon from "@/assets/gmail.png";
 import ContactImage from "@/assets/contact.png";
 import "./scss/contact.scss";
+import PropTypes from 'prop-types';
 
-function Contact() {
+function Contact({ isMobile }) {
     return (
-        <div className="contact">
+        <div className={`contact ${isMobile ? 'contactMweb' : ''}`}>
             <div className="socialMedia">
                 <h2 className="contact-title">contact<span>.</span></h2>
                 <p className="contact-description">
@@ -34,5 +35,9 @@ function Contact() {
         </div>
     );
 }
+
+Contact.propTypes = {
+    isMobile: PropTypes.bool
+};
 
 export default Contact;

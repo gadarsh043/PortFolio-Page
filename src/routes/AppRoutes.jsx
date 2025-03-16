@@ -10,8 +10,8 @@ const AppRoutes = ({isMobile}) => {
   return (
     <Routes>
       <Route path="/" element={<Home isMobile={isMobile} />} />
-      <Route path="/resume" element={<Resume />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/resume" element={<Resume isMobile={isMobile} />} />
+      <Route path="/contact" element={<Contact isMobile={isMobile} />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/*" element={<Home />} />
     </Routes>

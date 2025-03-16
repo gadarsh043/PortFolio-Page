@@ -17,7 +17,8 @@ function Home({isMobile}) {
       const mouseX = e.clientX - e.currentTarget.getBoundingClientRect().left;
 
       const newMainWidth = Math.min(Math.max((mouseX / containerWidth) * 100, 0), 100);
-      setMainWidth(100 - newMainWidth);
+      // setMainWidth(100 - newMainWidth); // For reverse direction of image
+      setMainWidth(newMainWidth);
   };
 
   const handleMouseLeave = () => {

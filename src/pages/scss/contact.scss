@@ -1,4 +1,4 @@
-.contact {
+.contact, .contactMweb {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,5 +61,20 @@
             object-fit: contain;
             border-radius: 100px;
         }
+    }
+}
+.contactMweb {
+    padding: unset;
+    gap: unset;
+    justify-content: unset;
+    flex-direction: column;
+    margin-bottom: unset;
+    .socialMedia {
+        max-width: 100%;
+        text-align: center;
+        margin: 35px;
+    }
+    .contact-image-container {
+        display: none;
     }
 }

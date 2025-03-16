@@ -73,16 +73,21 @@ function Navbar({ appearance, toggleAppearance, isMobile }) {
             )}
             {location.pathname === '/'
                 ? null
-                : 
-                <div className="toggleAppearance" onClick={() => toggleAppearance(isDarkMode ? 'light' : 'dark')}>
-                    <div className={`themeToggleSwitch ${isDarkMode ? 'dark' : 'light'}`}>
-                        <img 
-                            src={isDarkMode ? darkModeIcon : lightModeIcon} 
-                            alt={isDarkMode ? "Dark Mode" : "Light Mode"} 
-                            className="themeIcon"
-                        />
-                    </div>
-                </div>
+                : (
+                    !isMobile ? 
+                        <>
+                            <div className="toggleAppearance" onClick={() => toggleAppearance(isDarkMode ? 'light' : 'dark')}>
+                                <div className={`themeToggleSwitch ${isDarkMode ? 'dark' : 'light'}`}>
+                                    <img 
+                                        src={isDarkMode ? darkModeIcon : lightModeIcon} 
+                                        alt={isDarkMode ? "Dark Mode" : "Light Mode"} 
+                                        className="themeIcon"
+                                    />
+                                </div>
+                            </div>
+                        </>
+                    : null
+                )
             }
         </div>
     )

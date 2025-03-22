@@ -38,7 +38,7 @@ function App() {
 
   return (
     <Theme accentColor="grass" appearance={appearance} className="container">
-      <Router>
+      <Router basename="/">
         <>
           <Navbar appearance={appearance} toggleAppearance={toggleAppearance}  isMobile={isMobile} />
           <br />

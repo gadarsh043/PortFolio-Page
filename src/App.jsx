@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "@/routes/AppRoutes";
 import Navbar from "@/components/navbar";
+import Widget from "@/components/widget";
 import { pdfjs } from 'react-pdf';
 import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
@@ -62,6 +63,7 @@ function App() {
               </div>
             </>
           }
+          <Widget />
         </>
       </Router>
     </Theme>

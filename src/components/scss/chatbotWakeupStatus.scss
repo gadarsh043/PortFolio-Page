@@ -1,0 +1,111 @@
+.wakeup-status {
+  position: relative;
+  z-index: 1000;
+}
+
+.wakeup-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  animation: fadeInSlide 0.3s ease-out;
+  
+  &.waking {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    color: #856404;
+    border: 1px solid #ffeaa7;
+    box-shadow: 0 2px 8px rgba(255, 234, 167, 0.3);
+  }
+  
+  &.ready {
+    background: linear-gradient(135deg, #d1f2eb, #a8e6cf);
+    color: #155724;
+    border: 1px solid #a8e6cf;
+    box-shadow: 0 2px 8px rgba(168, 230, 207, 0.3);
+    animation: fadeInSlide 0.3s ease-out, fadeOut 3s ease-in 2s forwards;
+  }
+}
+
+.wakeup-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid #856404;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.ready-icon {
+  font-size: 16px;
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .wakeup-indicator {
+  &.waking {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #f39c12;
+    border: 1px solid #34495e;
+    box-shadow: 0 2px 8px rgba(52, 73, 94, 0.3);
+  }
+  
+  &.ready {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: #ffffff;
+    border: 1px solid #2ecc71;
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 736px) {
+  .wakeup-indicator {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+  }
+  
+  .wakeup-spinner,
+  .ready-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+  }
+} 

@@ -227,6 +227,44 @@
     font-size: 0.85rem;
     word-wrap: break-word;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    /* HTML content styling */
+    p {
+        margin: 4px 0;
+        line-height: 1.4;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    br {
+        display: block;
+        margin: 4px 0;
+        content: "";
+    }
+    
+    em, i {
+        font-style: italic;
+    }
+    
+    strong, b {
+        font-weight: 600;
+    }
+    
+    /* Disclaimer text styling */
+    p[style*="italic"], 
+    p[style*="color: #666"] {
+        opacity: 0.7;
+        font-size: 0.75rem !important;
+        margin-top: 8px !important;
+        padding-top: 4px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
 }
 
 .message.user .message-content {
@@ -240,6 +278,13 @@
     color: var(--dark-neutral);
     border: 1px solid #e5e7eb;
     border-bottom-left-radius: 4px;
+    
+    /* Bot-specific HTML styling */
+    p[style*="italic"], 
+    p[style*="color: #666"] {
+        color: white !important;
+        border-top-color: rgba(0, 0, 0, 0.1);
+    }
 }
 
 .chat-input {

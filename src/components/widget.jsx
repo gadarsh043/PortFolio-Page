@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './scss/widget.scss';
+import { wakeupChatbotNow, isChatbotWakingUp } from '@/services/chatbotWakeup';
+import ChatbotWakeupStatus from './ChatbotWakeupStatus';
 
 const Widget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +62,17 @@ const Widget = () => {
     setIsOpen(!isOpen);
     if (hasNotification) {
       setHasNotification(false);
+    }
+    
+    // Wake up chatbot when user opens chat (if not already waking up)
+    if (!isOpen && !isChatbotWakingUp()) {
+      wakeupChatbotNow().then(success => {
+        if (success) {
+          console.log('💬 Chatbot is ready for conversation!');
+        } else {
+          console.log('⚠️ Chatbot wakeup failed, but you can still try chatting');
+        }
+      });
     }
     
     // Focus input when opening
@@ -191,13 +204,15 @@ const Widget = () => {
         </div>
         
         <div className="chat-messages">
+          <ChatbotWakeupStatus />
+          
           {messages.map((message) => (
             <div key={message.id} className={`message ${message.isBot ? 'bot' : 'user'}`}>
               <div className="message-avatar">
                 {message.isBot ? 'A' : 'Y'}
               </div>
               <div className="message-content">
-                {message.text}
+                <div dangerouslySetInnerHTML={{ __html: message.text }} />
               </div>
             </div>
           ))}

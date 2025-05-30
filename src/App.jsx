@@ -9,6 +9,7 @@ import { Theme } from "@radix-ui/themes";
 import Circadian from '@/components/circadian'
 import lightModeIcon from '@/assets/light-mode2.png';
 import darkModeIcon from '@/assets/dark-mode.png';
+import { initChatbotWakeup } from '@/services/chatbotWakeup';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -27,6 +28,10 @@ function App() {
   useEffect(() => {
     window.addEventListener('resize', checkScreenSize);
     checkScreenSize();
+
+    // Initialize chatbot wakeup service when app loads
+    // This will preemptively wake up the chatbot API to reduce cold start delays
+    initChatbotWakeup();
 
     return () => {
       window.removeEventListener('resize', checkScreenSize);

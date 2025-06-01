@@ -10,6 +10,7 @@ import Circadian from '@/components/circadian'
 import lightModeIcon from '@/assets/light-mode2.png';
 import darkModeIcon from '@/assets/dark-mode.png';
 import { initChatbotWakeup } from '@/services/chatbotWakeup';
+import { initGA, trackUserSession, trackPageView } from '@/utils/analytics';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -26,6 +27,13 @@ function App() {
   };
 
   useEffect(() => {
+    // Initialize Google Analytics
+    initGA();
+    
+    // Track user session and initial page view
+    trackUserSession();
+    trackPageView(window.location.pathname, document.title);
+
     window.addEventListener('resize', checkScreenSize);
     checkScreenSize();
 

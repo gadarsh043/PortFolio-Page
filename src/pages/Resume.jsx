@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import { Document, Page } from 'react-pdf';
 import './scss/resume.scss';
 import PropTypes from 'prop-types';
+import { trackPageView, trackButtonClick } from '@/utils/analytics';
 
 function Resume({isMobile}) {
   const [pdfUrl, setPdfUrl] = useState("");
 
   useEffect(() => {
+    // Track page view
+    trackPageView('/resume', 'Resume - Adarsh Gella Portfolio');
+    
     const bucketName = "resume";
     const fileName = "resume.pdf";
     const publicUrl = `https://fmcjrkoabikaexixbppg.supabase.co/storage/v1/object/public/${bucketName}/${fileName}`;
@@ -16,6 +20,10 @@ function Resume({isMobile}) {
   const [pageNumber] = useState(1);
 
   const handleDownload = () => {
+    trackButtonClick('Resume Download', 'resume_page', {
+      file_url: pdfUrl,
+      device_type: isMobile ? 'mobile' : 'desktop'
+    });
     window.open(pdfUrl, "_blank");
   };
 

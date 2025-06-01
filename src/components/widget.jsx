@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import './scss/widget.scss';
 import { wakeupChatbotNow, isChatbotWakingUp } from '@/services/chatbotWakeup';
 import ChatbotWakeupStatus from './ChatbotWakeupStatus';
+import { trackChatbotInteraction, trackButtonClick } from '@/utils/analytics';
 
 const Widget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ const Widget = () => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const loadingTimeoutRef = useRef(null);
+  const messageStartTime = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -59,7 +61,12 @@ const Widget = () => {
   };
 
   const toggleChat = () => {
+    const wasOpen = isOpen;
     setIsOpen(!isOpen);
+    
+    // Track chatbot open/close
+    trackChatbotInteraction(wasOpen ? 'close' : 'open');
+    
     if (hasNotification) {
       setHasNotification(false);
     }
@@ -120,6 +127,10 @@ const Widget = () => {
     
     if (question === '' || isLoading || isInitializing) return;
     
+    // Track message sending
+    trackChatbotInteraction('message_sent', question);
+    messageStartTime.current = Date.now();
+    
     addMessage(question, 'user');
     setInputText('');
     
@@ -142,6 +153,9 @@ const Widget = () => {
       
       const data = await response.json();
       
+      // Calculate response time
+      const responseTime = messageStartTime.current ? Date.now() - messageStartTime.current : null;
+      
       // Clear the loading timeout
       if (loadingTimeoutRef.current) {
         clearTimeout(loadingTimeoutRef.current);
@@ -150,6 +164,9 @@ const Widget = () => {
       hideTypingIndicator();
       hideInitializingScreen();
       addMessage(data.response, 'bot');
+      
+      // Track successful response
+      trackChatbotInteraction('response_received', data.response, responseTime);
       
     } catch (error) {
       console.error('Error:', error);
@@ -162,11 +179,19 @@ const Widget = () => {
       hideTypingIndicator();
       hideInitializingScreen();
       addMessage("Sorry, I'm having trouble connecting. Please try again!", 'bot');
+      
+      // Track error
+      trackChatbotInteraction('error', error.message);
     }
   };
 
   const sendQuickMessage = (message) => {
     if (isLoading || isInitializing) return;
+    
+    // Track quick action usage
+    trackChatbotInteraction('quick_action', message);
+    trackButtonClick(`Quick: ${message}`, 'chatbot_widget');
+    
     setInputText(message);
     setTimeout(() => {
       sendMessage();

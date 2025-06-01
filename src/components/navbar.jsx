@@ -9,6 +9,7 @@ import lightModeIcon from '@/assets/light-mode2.png';
 import darkModeIcon from '@/assets/dark-mode.png';
 import hamburger from '@/assets/hamburger.png'
 import close from '@/assets/close.png'
+import { trackNavigation, trackButtonClick, trackUserInteraction } from '@/utils/analytics';
 
 function Navbar({ appearance, toggleAppearance, isMobile }) {
     const navigate = useNavigate();
@@ -17,6 +18,43 @@ function Navbar({ appearance, toggleAppearance, isMobile }) {
 
     const isActive = (path) => location.pathname === path;
     const isDarkMode = appearance === 'dark';
+
+    const handleNavigation = (path, pageName) => {
+        trackNavigation(location.pathname, path, 'navbar_click');
+        trackButtonClick(pageName, 'navbar');
+        navigate(path);
+        if (isMobile) setMenuOpen(false);
+    };
+
+    const handleExternalLink = (url, linkName) => {
+        trackButtonClick(linkName, 'navbar', { 
+            external_url: url,
+            link_type: 'external' 
+        });
+        trackUserInteraction('external_link_click', linkName, { url });
+        window.open(url, '_blank');
+    };
+
+    const handleThemeToggle = () => {
+        const newTheme = isDarkMode ? 'light' : 'dark';
+        trackUserInteraction('theme_toggle', `${appearance}_to_${newTheme}`, {
+            from_theme: appearance,
+            to_theme: newTheme,
+            device_type: isMobile ? 'mobile' : 'desktop'
+        });
+        toggleAppearance(newTheme);
+    };
+
+    const handleMenuToggle = (action) => {
+        trackUserInteraction('mobile_menu', action);
+        setMenuOpen(action === 'open');
+    };
+
+    const handleAvatarClick = () => {
+        trackNavigation(location.pathname, '/', 'avatar_click');
+        trackButtonClick('Avatar/Logo', 'navbar');
+        navigate('/');
+    };
     
     return (
         <div className={`navbar ${isMobile ? "mweb" : ""}`}>
@@ -25,7 +63,7 @@ function Navbar({ appearance, toggleAppearance, isMobile }) {
                     src={hamburger}
                     alt="open Menu"
                     className="mweb_menu"
-                    onClick={() => setMenuOpen(true)}
+                    onClick={() => handleMenuToggle('open')}
                 />
             )}
             {isMobile && menuOpen && (
@@ -34,21 +72,21 @@ function Navbar({ appearance, toggleAppearance, isMobile }) {
                         src={close}
                         alt="Close Menu"
                         className="closeMenu"
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => handleMenuToggle('close')}
                     />
                     <Menubar.Root className="MenubarRoot">
                         <Menubar.Menu>
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/") ? "active" : ""}`} onClick={() => { navigate("/"); setMenuOpen(false); }}>Home</Menubar.Trigger>
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/resume") ? "active" : ""}`} onClick={() => { navigate("/resume"); setMenuOpen(false); }}>Resume</Menubar.Trigger>
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/projects") ? "active" : ""}`} onClick={() => { navigate("/projects"); setMenuOpen(false); }}>Projects</Menubar.Trigger>
-                            <Menubar.Trigger className="MenubarTrigger" onClick={() => window.open("https://www.youtube.com/@g_adarsh_sonu", "_blank")}>YouTube</Menubar.Trigger>
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/contact") ? "active" : ""}`} onClick={() => { navigate("/contact"); setMenuOpen(false); }}>Contact</Menubar.Trigger>
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/") ? "active" : ""}`} onClick={() => handleNavigation("/", "Home")}>Home</Menubar.Trigger>
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/resume") ? "active" : ""}`} onClick={() => handleNavigation("/resume", "Resume")}>Resume</Menubar.Trigger>
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/projects") ? "active" : ""}`} onClick={() => handleNavigation("/projects", "Projects")}>Projects</Menubar.Trigger>
+                            <Menubar.Trigger className="MenubarTrigger" onClick={() => handleExternalLink("https://www.youtube.com/@g_adarsh_sonu", "YouTube")}>YouTube</Menubar.Trigger>
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive("/contact") ? "active" : ""}`} onClick={() => handleNavigation("/contact", "Contact")}>Contact</Menubar.Trigger>
                         </Menubar.Menu>
                     </Menubar.Root>
                 </div>
             )}
             <div className="avatar">
-                <Avatar.Root className="AvatarRoot" onClick={() => navigate('/')}>
+                <Avatar.Root className="AvatarRoot" onClick={handleAvatarClick}>
                     <Avatar.Image
                         className="AvatarImage"
                         src={profilePic}
@@ -60,13 +98,13 @@ function Navbar({ appearance, toggleAppearance, isMobile }) {
                 <div className="menu">
                     <Menubar.Root className="MenubarRoot">
                         <Menubar.Menu>
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/') ? 'active' : ''}`} onClick={() => navigate('/')}>Home</Menubar.Trigger>|
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/resume') ? 'active' : ''}`} onClick={() => navigate('/resume')}>Resume</Menubar.Trigger>|
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/projects') ? 'active' : ''}`} onClick={() => navigate('/projects')}>Projects</Menubar.Trigger>|
-                            <Menubar.Trigger className="MenubarTrigger" onClick={() => window.open('https://www.youtube.com/@g_adarsh_sonu', '_blank')}>
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/') ? 'active' : ''}`} onClick={() => handleNavigation('/', 'Home')}>Home</Menubar.Trigger>|
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/resume') ? 'active' : ''}`} onClick={() => handleNavigation('/resume', 'Resume')}>Resume</Menubar.Trigger>|
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/projects') ? 'active' : ''}`} onClick={() => handleNavigation('/projects', 'Projects')}>Projects</Menubar.Trigger>|
+                            <Menubar.Trigger className="MenubarTrigger" onClick={() => handleExternalLink('https://www.youtube.com/@g_adarsh_sonu', 'YouTube')}>
                                 Youtube
                             </Menubar.Trigger>|
-                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/contact') ? 'active' : ''}`} onClick={() => navigate('/contact')}>Contact</Menubar.Trigger>
+                            <Menubar.Trigger className={`MenubarTrigger ${isActive('/contact') ? 'active' : ''}`} onClick={() => handleNavigation('/contact', 'Contact')}>Contact</Menubar.Trigger>
                         </Menubar.Menu>
                     </Menubar.Root>
                 </div>
@@ -76,7 +114,7 @@ function Navbar({ appearance, toggleAppearance, isMobile }) {
                 : (
                     !isMobile ? 
                         <>
-                            <div className="toggleAppearance" onClick={() => toggleAppearance(isDarkMode ? 'light' : 'dark')}>
+                            <div className="toggleAppearance" onClick={handleThemeToggle}>
                                 <div className={`themeToggleSwitch ${isDarkMode ? 'dark' : 'light'}`}>
                                     <img 
                                         src={isDarkMode ? darkModeIcon : lightModeIcon} 

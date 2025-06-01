@@ -1,24 +1,30 @@
 import ReactGA from 'react-ga4';
 
-// Get GA Measurement ID from environment variables
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-V5690YXT75';
+// Direct measurement ID - ensures analytics always works
+const GA_MEASUREMENT_ID = 'G-V5690YXT75';
 
 // Initialize Google Analytics
 export const initGA = () => {
-  if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-V5690YXT75') {
-    console.warn('Google Analytics Measurement ID not configured. Please set VITE_GA_MEASUREMENT_ID in your environment variables.');
+  console.log('Initializing Google Analytics with ID:', GA_MEASUREMENT_ID);
+  
+  if (!GA_MEASUREMENT_ID) {
+    console.warn('Google Analytics Measurement ID not available.');
     return;
   }
 
-  ReactGA.initialize(GA_MEASUREMENT_ID, {
-    debug: import.meta.env.DEV,
-    titleCase: false,
-    gaOptions: {
-      send_page_view: false // We'll send page views manually
-    }
-  });
-  
-  console.log('Google Analytics initialized with ID:', GA_MEASUREMENT_ID);
+  try {
+    ReactGA.initialize(GA_MEASUREMENT_ID, {
+      debug: import.meta.env.DEV,
+      titleCase: false,
+      gaOptions: {
+        send_page_view: false // We'll send page views manually
+      }
+    });
+    
+    console.log('✅ Google Analytics successfully initialized with ID:', GA_MEASUREMENT_ID);
+  } catch (error) {
+    console.error('❌ Error initializing Google Analytics:', error);
+  }
 };
 
 // Track page views

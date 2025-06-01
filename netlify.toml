@@ -6,6 +6,13 @@ status = 301
 force = true
 
 [[redirects]]
+# Redirect /notepad to external notepad app
+from = "/notepad"
+to = "https://autosave-notepad.netlify.app/"
+status = 301
+force = true
+
+[[redirects]]
 # SPA routing: redirect all paths to index.html
 from = "/*"
 to = "/index.html"

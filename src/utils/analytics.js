@@ -5,7 +5,6 @@ const GA_MEASUREMENT_ID = 'G-V5690YXT75';
 
 // Initialize Google Analytics
 export const initGA = () => {
-  console.log('Initializing Google Analytics with ID:', GA_MEASUREMENT_ID);
   
   if (!GA_MEASUREMENT_ID) {
     console.warn('Google Analytics Measurement ID not available.');
@@ -21,7 +20,6 @@ export const initGA = () => {
       }
     });
     
-    console.log('✅ Google Analytics successfully initialized with ID:', GA_MEASUREMENT_ID);
   } catch (error) {
     console.error('❌ Error initializing Google Analytics:', error);
   }

@@ -1,111 +1,126 @@
 const PROJECTS_DATA = [
     {
-        "order": 1,
-        "description": "The codebase for this portfolio, showcasing my skills and projects.",
         "name": "Portfolio Website",
+        "description": "The codebase for this portfolio, showcasing my skills and projects.",
+        "order": 1,
+        "github": "https://github.com/gadarsh043/PortFolio-Page",
+        "live": "https://adarshgella.com",
         "tech": "React, SCSS, FireBase, SupaBase",
-        "github": "https://github.com/gadarsh043/PortFolio-Page"
+        "category": "Showcase"
     },
     {
+        "name": "Personal AI Chatbot",
         "description": "An AI-powered personal chatbot that serves as an intelligent resume assistant.",
         "order": 2,
         "github": "https://github.com/gadarsh043/personal-chatbot",
-        "tech": "Flask, Python, YAML",
         "live": "https://personal-chatbot-q2wp.onrender.com/",
-        "name": "Personal AI Chatbot"
+        "tech": "Flask, Python, YAML",
+        "category": "AI & ML"
     },
     {
+        "name": "Blogger's Hub",
         "description": "A dynamic blogging platform with real-time updates.",
         "order": 3,
+        "github": "https://github.com/gadarsh043/blogPage",
         "live": "https://g-adarsh-sonu.netlify.app/",
         "tech": "Vue, Firebase, SCSS",
-        "name": "Blogger's Hub",
-        "github": "https://github.com/gadarsh043/blogPage"
+        "category": "Web Apps"
     },
     {
         "name": "Rizzing App",
         "description": "An AI-powered app that generates pickup lines and chat replies from dating profile screenshots.",
         "order": 4,
-        "live": "https://rizzing-frontend.netlify.app/",
         "github": "https://github.com/gadarsh043/rizzing-backend",
-        "tech": "React, Node.js, Express, Tesseract.js, SCSS, Railway.app"
+        "live": "https://rizzing-frontend.netlify.app/",
+        "tech": "React, Node.js, Express, Tesseract.js, SCSS, Railway.app",
+        "category": "AI & ML"
     },
     {
-        "description": "A photo-sharing application with MongoDB integration.",
-        "tech": "React, MongoDB, Node.js, Express, SCSS",
-        "live": "https://youtu.be/k5Rc1Fi5kbU?si=RCmhSil41hWrcb-A",
         "name": "PhotoShare",
+        "description": "A photo-sharing application with MongoDB integration.",
         "order": 5,
-        "github": "https://github.com/gadarsh043/photoSharingApp"
+        "github": "https://github.com/gadarsh043/photoSharingApp",
+        "live": "https://youtu.be/k5Rc1Fi5kbU?si=RCmhSil41hWrcb-A",
+        "tech": "React, MongoDB, Node.js, Express, SCSS",
+        "category": "Web Apps"
     },
     {
+        "name": "AI Adventure Companion",
         "description": "An AI sidekick that turns hours into epic city escapes.",
         "order": 6,
-        "name": "AI Adventure Companion",
         "github": "https://github.com/gadarsh043/adventure-companion-backend",
+        "live": "https://adventure-companion.netlify.app",
         "tech": "React, SCSS, Node.js, Netlify Functions, Railway.App, OpenStreetMap, OpenWeatherMap",
-        "live": "https://adventure-companion.netlify.app"
+        "category": "AI & ML"
     },
     {
-        "tech": "Vue, SCSS",
-        "description": "A lightweight Facebook-inspired social networking platform.",
         "name": "QuinBook",
-        "github": "https://github.com/gadarsh043/QuinBook-UI",
+        "description": "A lightweight Facebook-inspired social networking platform.",
         "order": 7,
-        "live": "https://drive.google.com/file/d/1AX8LXC3HQwssu-Yb2lT6jEcIvIt9uXS8/view?usp=sharing"
-    },
-    {
-        "description": "Holographic 3D Tic-Tac-Toe: battle friends or AI, rotate, win with flair!",
-        "github": "https://github.com/gadarsh043/3D-Tic-Tac-Toe",
-        "tech": "React, Vite, Heroicons",
-        "order": 8,
-        "live": "https://3d-tic-tac.netlify.app/",
-        "name": "3D Tic-Tac-Toe"
-    },
-    {
-        "order": 9,
+        "github": "https://github.com/gadarsh043/QuinBook-UI",
+        "live": "https://drive.google.com/file/d/1AX8LXC3HQwssu-Yb2lT6jEcIvIt9uXS8/view?usp=sharing",
         "tech": "Vue, SCSS",
-        "description": "An interactive guessing game like 'Mastermind'.",
-        "live": "https://cow-bull-game.netlify.app/",
-        "name": "CowBull Game",
-        "github": "https://github.com/gadarsh043/cow_bull_game"
+        "category": "Web Apps"
     },
     {
-        "live": "https://autosave-notepad.netlify.app/",
-        "github": "https://github.com/gadarsh043/online-notepad",
+        "name": "3D Tic-Tac-Toe",
+        "description": "Holographic 3D Tic-Tac-Toe: battle friends or AI, rotate, win with flair!",
+        "order": 8,
+        "github": "https://github.com/gadarsh043/3D-Tic-Tac-Toe",
+        "live": "https://3d-tic-tac.netlify.app/",
+        "tech": "React, Vite, Heroicons",
+        "category": "Games"
+    },
+    {
+        "name": "CowBull Game",
+        "description": "An interactive guessing game like 'Mastermind'.",
+        "order": 9,
+        "github": "https://github.com/gadarsh043/cow_bull_game",
+        "live": "https://cow-bull-game.netlify.app/",
+        "tech": "Vue, SCSS",
+        "category": "Games"
+    },
+    {
         "name": "Online Notepad",
-        "tech": "React, Vite, LocalStorage, CSS3",
+        "description": "Secure online notepad that automatically saves your work locally.",
         "order": 10,
-        "description": "Secure online notepad that automatically saves your work locally."
+        "github": "https://github.com/gadarsh043/online-notepad",
+        "live": "https://autosave-notepad.netlify.app/",
+        "tech": "React, Vite, LocalStorage, CSS3",
+        "category": "Utilities"
     },
     {
         "name": "VSCode Assist Plugin",
-        "tech": "JavaScript, VSCode Plugin",
-        "github": "https://github.com/gadarsh043/QB-Assist-VsCode-Plugin",
+        "description": "Plugin to help developers with Jest test cases effortlessly.",
         "order": 11,
-        "description": "Plugin to help developers with Jest test cases effortlessly."
+        "github": "https://github.com/gadarsh043/QB-Assist-VsCode-Plugin",
+        "tech": "JavaScript, VSCode Plugin",
+        "category": "Utilities"
     },
     {
-        "description": "A tool to locate and track IP addresses.",
-        "tech": "Vue, SCSS",
-        "live": "https://ip-tracking-website.netlify.app",
         "name": "IP Tracker",
+        "description": "A tool to locate and track IP addresses.",
         "order": 12,
-        "github": "https://github.com/gadarsh043/ip-tracker"
+        "github": "https://github.com/gadarsh043/ip-tracker",
+        "live": "https://ip-tracking-website.netlify.app",
+        "tech": "Vue, SCSS",
+        "category": "Utilities"
     },
     {
-        "tech": "Vue, SCSS",
-        "description": "A streamlined UI for managing and conducting technical interviews.",
         "name": "TakeInterview",
+        "description": "A streamlined UI for managing and conducting technical interviews.",
         "order": 13,
-        "github": "https://github.com/gadarsh043/TakeInterview-UI"
+        "github": "https://github.com/gadarsh043/TakeInterview-UI",
+        "tech": "Vue, SCSS",
+        "category": "Web Apps"
     },
     {
-        "description": "A simple and efficient coffee shop billing system for tracking orders.",
-        "tech": "Vue, SCSS",
         "name": "Coffee Billing App",
+        "description": "A simple and efficient coffee shop billing system for tracking orders.",
         "order": 14,
-        "github": "https://github.com/gadarsh043/CustomerBillingSystem-UI"
+        "github": "https://github.com/gadarsh043/CustomerBillingSystem-UI",
+        "tech": "Vue, SCSS",
+        "category": "Web Apps"
     }
 ];
 
@@ -135,7 +150,7 @@ async function replaceAllProjects() {
         
         PROJECTS_DATA.forEach((project) => {
             // Use zero-padded order field as document ID (01, 02, 03, etc.)
-            const docId = project.order.toString().padStart(3, '0');
+            const docId = project.order.toString().padStart(2, '0');
             const docRef = doc(db, 'projects', docId);
             addPromises.push(setDoc(docRef, project));
             console.log(`📝 Setting project "${project.name}" with document ID: ${docId}`);

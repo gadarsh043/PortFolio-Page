@@ -134,8 +134,8 @@ async function replaceAllProjects() {
         const addPromises = [];
         
         PROJECTS_DATA.forEach((project) => {
-            // Use the order field as the document ID (converted to string)
-            const docId = project.order.toString();
+            // Use zero-padded order field as document ID (01, 02, 03, etc.)
+            const docId = project.order.toString().padStart(3, '0');
             const docRef = doc(db, 'projects', docId);
             addPromises.push(setDoc(docRef, project));
             console.log(`📝 Setting project "${project.name}" with document ID: ${docId}`);

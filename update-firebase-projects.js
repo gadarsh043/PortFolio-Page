@@ -5,7 +5,7 @@ const PROJECTS_DATA = [
         "order": 1,
         "github": "https://github.com/gadarsh043/PortFolio-Page",
         "live": "https://adarshgella.com",
-        "tech": "React, SCSS, FireBase, SupaBase",
+        "tech": "React • Vite • Firebase • Google Analytics • GitHub Pages",
         "category": "Showcase"
     },
     {
@@ -14,7 +14,7 @@ const PROJECTS_DATA = [
         "order": 2,
         "github": "https://github.com/gadarsh043/personal-chatbot",
         "live": "https://personal-chatbot-q2wp.onrender.com/",
-        "tech": "Flask, Python, YAML",
+        "tech": "Flask • OpenAI API • YAML Configuration • Render",
         "category": "AI & ML"
     },
     {
@@ -23,7 +23,7 @@ const PROJECTS_DATA = [
         "order": 3,
         "github": "https://github.com/gadarsh043/blogPage",
         "live": "https://g-adarsh-sonu.netlify.app/",
-        "tech": "Vue, Firebase, SCSS",
+        "tech": "Vue.js • Firebase Firestore • Real-time Database • Netlify",
         "category": "Web Apps"
     },
     {
@@ -32,7 +32,7 @@ const PROJECTS_DATA = [
         "order": 4,
         "github": "https://github.com/gadarsh043/rizzing-backend",
         "live": "https://rizzing-frontend.netlify.app/",
-        "tech": "React, Node.js, Express, Tesseract.js, SCSS, Railway.app",
+        "tech": "React • Node.js • Tesseract.js OCR • OpenAI API • Railway",
         "category": "AI & ML"
     },
     {
@@ -41,7 +41,7 @@ const PROJECTS_DATA = [
         "order": 5,
         "github": "https://github.com/gadarsh043/photoSharingApp",
         "live": "https://youtu.be/k5Rc1Fi5kbU?si=RCmhSil41hWrcb-A",
-        "tech": "React, MongoDB, Node.js, Express, SCSS",
+        "tech": "React • MongoDB • Express.js • File Upload • Authentication",
         "category": "Web Apps"
     },
     {
@@ -50,7 +50,7 @@ const PROJECTS_DATA = [
         "order": 6,
         "github": "https://github.com/gadarsh043/adventure-companion-backend",
         "live": "https://adventure-companion.netlify.app",
-        "tech": "React, SCSS, Node.js, Netlify Functions, Railway.App, OpenStreetMap, OpenWeatherMap",
+        "tech": "React • OpenStreetMap API • OpenWeatherMap API • Netlify Functions",
         "category": "AI & ML"
     },
     {
@@ -59,7 +59,7 @@ const PROJECTS_DATA = [
         "order": 7,
         "github": "https://github.com/gadarsh043/QuinBook-UI",
         "live": "https://drive.google.com/file/d/1AX8LXC3HQwssu-Yb2lT6jEcIvIt9uXS8/view?usp=sharing",
-        "tech": "Vue, SCSS",
+        "tech": "Vue.js • Component Architecture • Social Media Features",
         "category": "Web Apps"
     },
     {
@@ -68,7 +68,7 @@ const PROJECTS_DATA = [
         "order": 8,
         "github": "https://github.com/gadarsh043/3D-Tic-Tac-Toe",
         "live": "https://3d-tic-tac.netlify.app/",
-        "tech": "React, Vite, Heroicons",
+        "tech": "React • 3D Graphics • AI Algorithm • Game Logic • Heroicons",
         "category": "Games"
     },
     {
@@ -77,7 +77,7 @@ const PROJECTS_DATA = [
         "order": 9,
         "github": "https://github.com/gadarsh043/cow_bull_game",
         "live": "https://cow-bull-game.netlify.app/",
-        "tech": "Vue, SCSS",
+        "tech": "Vue.js • Game Logic • Interactive UI • Local Storage",
         "category": "Games"
     },
     {
@@ -86,7 +86,7 @@ const PROJECTS_DATA = [
         "order": 10,
         "github": "https://github.com/gadarsh043/online-notepad",
         "live": "https://autosave-notepad.netlify.app/",
-        "tech": "React, Vite, LocalStorage, CSS3",
+        "tech": "React • LocalStorage • Auto-save • PWA Features",
         "category": "Utilities"
     },
     {
@@ -94,7 +94,7 @@ const PROJECTS_DATA = [
         "description": "Plugin to help developers with Jest test cases effortlessly.",
         "order": 11,
         "github": "https://github.com/gadarsh043/QB-Assist-VsCode-Plugin",
-        "tech": "JavaScript, VSCode Plugin",
+        "tech": "VSCode Extension API • Jest Integration • Developer Tools",
         "category": "Utilities"
     },
     {
@@ -103,7 +103,7 @@ const PROJECTS_DATA = [
         "order": 12,
         "github": "https://github.com/gadarsh043/ip-tracker",
         "live": "https://ip-tracking-website.netlify.app",
-        "tech": "Vue, SCSS",
+        "tech": "Vue.js • IP Geolocation API • Maps Integration • Real-time Data",
         "category": "Utilities"
     },
     {
@@ -111,7 +111,7 @@ const PROJECTS_DATA = [
         "description": "A streamlined UI for managing and conducting technical interviews.",
         "order": 13,
         "github": "https://github.com/gadarsh043/TakeInterview-UI",
-        "tech": "Vue, SCSS",
+        "tech": "Vue.js • Interview Management • UI/UX Design • Admin Panel",
         "category": "Web Apps"
     },
     {
@@ -119,7 +119,7 @@ const PROJECTS_DATA = [
         "description": "A simple and efficient coffee shop billing system for tracking orders.",
         "order": 14,
         "github": "https://github.com/gadarsh043/CustomerBillingSystem-UI",
-        "tech": "Vue, SCSS",
+        "tech": "Vue.js • Billing System • Order Management • POS Interface",
         "category": "Web Apps"
     }
 ];

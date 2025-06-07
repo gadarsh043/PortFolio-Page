@@ -1,45 +1,33 @@
 // Projects page - Modern design with iframe previews
 .projects-page {
   min-height: 100vh;
-  padding: 1rem 0;
 
-  // Header section with network background
+  // Header section - clean and elegant
   .projects-header {
     text-align: center;
     position: relative;
-    margin-bottom: 2rem;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: white;
+    margin-bottom: 3rem;
+    background: transparent;
 
     .projects-title {
-      position: relative;
       font-size: 3.5rem;
-      font-weight: 900;
-      margin: 0.1rem;
-      z-index: 1;
-      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      background: linear-gradient(45deg, #ffffff, #f0f0f0);
+      font-weight: 800;
+      color: var(--dark-neutral);
+      margin: 0;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .projects-subtitle {
-      position: relative;
       font-size: 1.2rem;
-      font-weight: 400;
+      color: var(--secondary-color);
+      font-weight: 500;
       margin: 0;
-      z-index: 1;
-      opacity: 0.9;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0.8;
     }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-10px) rotate(1deg); }
-    66% { transform: translateY(5px) rotate(-1deg); }
   }
 
   // Category filters
@@ -126,25 +114,24 @@
       .project-card {
         max-width: 400px;
         width: 100%;
+        --card-background-color: unset !important;
       }
     }
   }
 
   // Project cards
   .project-card {
-    background: white;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
     height: 100%;
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     }
 
     &.has-demo {
@@ -193,13 +180,13 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transition: all 0.3s ease;
         z-index: 10;
+        backdrop-filter: blur(2px);
       }
 
       &:hover .floating-overlay {
@@ -212,62 +199,63 @@
 
       .floating-actions {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         align-items: center;
         justify-content: center;
       }
 
       .floating-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 50%;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 12px;
         cursor: pointer;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         backdrop-filter: blur(10px);
-        min-width: 120px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
 
         svg {
           width: 28px;
           height: 28px;
-          transition: transform 0.3s ease;
-        }
-
-        span {
-          font-size: 0.9rem;
-          font-weight: 600;
-          text-align: center;
+          transition: all 0.3s ease;
         }
 
         &:hover {
-          transform: translateY(-5px) scale(1.05);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-          
-          svg {
-            transform: scale(1.1);
-          }
+          transform: translateY(-8px) scale(1.1);
+          box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
         }
 
         &.github-icon {
-          color: var(--dark-neutral);
+          svg {
+            color: #333;
+          }
           
           &:hover {
-            background: var(--dark-neutral);
-            color: white;
+            background: #333;
+            border-color: #333;
+            
+            svg {
+              color: white;
+            }
           }
         }
 
         &.demo-icon {
-          color: var(--primary-color);
+          svg {
+            color: var(--primary-color);
+          }
           
           &:hover {
             background: var(--primary-color);
-            color: white;
+            border-color: var(--primary-color);
+            
+            svg {
+              color: white;
+            }
           }
         }
       }
@@ -444,8 +432,8 @@
     padding: 0.5rem 0;
 
     .projects-header {
-      padding: 1.5rem 1rem 0.5rem;
-      margin-bottom: 1.5rem;
+      padding: 2rem 1rem 1rem;
+      margin-bottom: 2rem;
 
       .projects-title {
         font-size: 2.5rem;
@@ -497,7 +485,7 @@
 
         .floating-overlay {
           opacity: 1;
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.4);
         }
 
         .floating-actions {
@@ -505,16 +493,12 @@
         }
 
         .floating-icon {
-          min-width: 100px;
-          padding: 1rem;
+          width: 50px;
+          height: 50px;
 
           svg {
             width: 24px;
             height: 24px;
-          }
-
-          span {
-            font-size: 0.8rem;
           }
         }
       }
@@ -544,7 +528,7 @@
 
       &.has-demo {
         .project-actions {
-          display: flex;
+          display: none;
         }
       }
     }
@@ -588,31 +572,40 @@
   .projects-page {
     .projects-header {
       .projects-title {
-        color: white;
-        background: linear-gradient(45deg, #ffffff, #f0f0f0);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--light-neutral);
       }
 
       .projects-subtitle {
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--secondary-color);
       }
     }
 
     .category-filters .category-btn {
-      background: #1e293b;
-      border-color: #334155;
+      background: #374151;
+      border-color: #4b5563;
       color: #cbd5e1;
 
       &:hover {
-        background: #334155;
+        background: #4b5563;
+      }
+
+      &.active {
+        color: white;
       }
     }
 
     .project-card {
-      background: #374151;
+      background: var(--dark-neutral);
       border-color: #4b5563;
+
+      .project-preview {
+        background: #2d3748;
+
+        .iframe-error {
+          background: #2d3748;
+          color: #a0aec0;
+        }
+      }
 
       .project-info {
         .project-name {
@@ -625,6 +618,10 @@
 
         .project-tech {
           border-color: #4b5563;
+
+          .tech-label {
+            color: var(--secondary-color);
+          }
 
           .tech-stack {
             color: #d1d5db;

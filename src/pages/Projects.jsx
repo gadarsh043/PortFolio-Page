@@ -24,10 +24,10 @@ function Projects() {
   useEffect(() => {
     trackPageView('/projects', 'Projects - Adarsh Gella Portfolio');
 
-    const fetchProjects = async () => {
+      const fetchProjects = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "projects"));
-        const projectsData = querySnapshot.docs.map(doc => doc.data());
+          const querySnapshot = await getDocs(collection(db, "projects"));
+          const projectsData = querySnapshot.docs.map(doc => doc.data());
         
         // Sort: Projects with live demos first, then by order
         const sortedProjects = projectsData.sort((a, b) => {
@@ -48,9 +48,9 @@ function Projects() {
       } catch (error) {
         console.error('❌ Error fetching projects:', error);
       }
-    };
+      };
 
-    fetchProjects();
+      fetchProjects();
   }, []);
 
   const filterProjects = (category) => {
@@ -278,8 +278,8 @@ function Projects() {
                   </Button>
                 )}
               </div>
-            </Card>
-          ))}
+          </Card>
+        ))}
         </div>
 
         {/* Empty State */}

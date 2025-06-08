@@ -27,9 +27,18 @@ const PROJECTS_DATA = [
         "category": "Web Apps"
     },
     {
+        "name": "FitTrackAI",
+        "description": "A comprehensive web-based fitness and nutrition tracking application designed to help users achieve their gym physique goals with detailed progress tracking and AI-powered insights.",
+        "order": 4,
+        "github": "https://github.com/gadarsh043/Fit-Track-AI",
+        "live": "https://fit-track-ai.netlify.app/",
+        "tech": "React • Firebase • Chart.js • Tailwind CSS • Vite • Google OAuth",
+        "category": "Web Apps"
+    },
+    {
         "name": "Rizzing App",
         "description": "An AI-powered app that generates pickup lines and chat replies from dating profile screenshots.",
-        "order": 4,
+        "order": 5,
         "github": "https://github.com/gadarsh043/rizzing-backend",
         "live": "https://rizzing-frontend.netlify.app/",
         "tech": "React • Node.js • Tesseract.js OCR • OpenAI API • Railway",
@@ -38,7 +47,7 @@ const PROJECTS_DATA = [
     {
         "name": "PhotoShare",
         "description": "A photo-sharing application with MongoDB integration.",
-        "order": 5,
+        "order": 6,
         "github": "https://github.com/gadarsh043/photoSharingApp",
         "live": "https://youtu.be/k5Rc1Fi5kbU?si=RCmhSil41hWrcb-A",
         "tech": "React • MongoDB • Express.js • File Upload • Authentication",
@@ -47,7 +56,7 @@ const PROJECTS_DATA = [
     {
         "name": "AI Adventure Companion",
         "description": "An AI sidekick that turns hours into epic city escapes.",
-        "order": 6,
+        "order": 7,
         "github": "https://github.com/gadarsh043/adventure-companion-backend",
         "live": "https://adventure-companion.netlify.app",
         "tech": "React • OpenStreetMap API • OpenWeatherMap API • Netlify Functions",
@@ -56,7 +65,7 @@ const PROJECTS_DATA = [
     {
         "name": "QuinBook",
         "description": "A lightweight Facebook-inspired social networking platform.",
-        "order": 7,
+        "order": 8,
         "github": "https://github.com/gadarsh043/QuinBook-UI",
         "live": "https://drive.google.com/file/d/1AX8LXC3HQwssu-Yb2lT6jEcIvIt9uXS8/view?usp=sharing",
         "tech": "Vue.js • Component Architecture • Social Media Features",
@@ -65,7 +74,7 @@ const PROJECTS_DATA = [
     {
         "name": "3D Tic-Tac-Toe",
         "description": "Holographic 3D Tic-Tac-Toe: battle friends or AI, rotate, win with flair!",
-        "order": 8,
+        "order": 9,
         "github": "https://github.com/gadarsh043/3D-Tic-Tac-Toe",
         "live": "https://3d-tic-tac.netlify.app/",
         "tech": "React • 3D Graphics • AI Algorithm • Game Logic • Heroicons",
@@ -74,7 +83,7 @@ const PROJECTS_DATA = [
     {
         "name": "CowBull Game",
         "description": "An interactive guessing game like 'Mastermind'.",
-        "order": 9,
+        "order": 10,
         "github": "https://github.com/gadarsh043/cow_bull_game",
         "live": "https://cow-bull-game.netlify.app/",
         "tech": "Vue.js • Game Logic • Interactive UI • Local Storage",
@@ -83,7 +92,7 @@ const PROJECTS_DATA = [
     {
         "name": "Online Notepad",
         "description": "Secure online notepad that automatically saves your work locally.",
-        "order": 10,
+        "order": 11,
         "github": "https://github.com/gadarsh043/online-notepad",
         "live": "https://autosave-notepad.netlify.app/",
         "tech": "React • LocalStorage • Auto-save • PWA Features",
@@ -92,7 +101,7 @@ const PROJECTS_DATA = [
     {
         "name": "VSCode Assist Plugin",
         "description": "Plugin to help developers with Jest test cases effortlessly.",
-        "order": 11,
+        "order": 12,
         "github": "https://github.com/gadarsh043/QB-Assist-VsCode-Plugin",
         "tech": "VSCode Extension API • Jest Integration • Developer Tools",
         "category": "Utilities"
@@ -100,7 +109,7 @@ const PROJECTS_DATA = [
     {
         "name": "IP Tracker",
         "description": "A tool to locate and track IP addresses.",
-        "order": 12,
+        "order": 13,
         "github": "https://github.com/gadarsh043/ip-tracker",
         "live": "https://ip-tracking-website.netlify.app",
         "tech": "Vue.js • IP Geolocation API • Maps Integration • Real-time Data",
@@ -109,7 +118,7 @@ const PROJECTS_DATA = [
     {
         "name": "TakeInterview",
         "description": "A streamlined UI for managing and conducting technical interviews.",
-        "order": 13,
+        "order": 14,
         "github": "https://github.com/gadarsh043/TakeInterview-UI",
         "tech": "Vue.js • Interview Management • UI/UX Design • Admin Panel",
         "category": "Web Apps"
@@ -117,7 +126,7 @@ const PROJECTS_DATA = [
     {
         "name": "Coffee Billing App",
         "description": "A simple and efficient coffee shop billing system for tracking orders.",
-        "order": 14,
+        "order": 15,
         "github": "https://github.com/gadarsh043/CustomerBillingSystem-UI",
         "tech": "Vue.js • Billing System • Order Management • POS Interface",
         "category": "Web Apps"

@@ -29,8 +29,8 @@ function Projects() {
           const querySnapshot = await getDocs(collection(db, "projects"));
           const projectsData = querySnapshot.docs.map(doc => doc.data());
         
-        // Sort: Projects with live demos first, then by order
-        const sortedProjects = projectsData.sort((a, b) => {
+          // Sort: Projects with live demos first, then by order
+          const sortedProjects = projectsData.sort((a, b) => {
           // First check if project has a live demo (not null, not empty, not YouTube/Drive links)
           const aHasDemo = a.live && a.live !== "null" && !a.live.includes('youtu.be') && !a.live.includes('drive.google.com');
           const bHasDemo = b.live && b.live !== "null" && !b.live.includes('youtu.be') && !b.live.includes('drive.google.com');
@@ -44,7 +44,6 @@ function Projects() {
         
         setProjects(sortedProjects);
         setFilteredProjects(sortedProjects);
-        console.log('📊 Projects loaded:', sortedProjects.length);
       } catch (error) {
         console.error('❌ Error fetching projects:', error);
       }

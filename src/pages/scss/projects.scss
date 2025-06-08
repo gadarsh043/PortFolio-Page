@@ -390,8 +390,18 @@
       }
     }
 
+    // Desktop: Hide floating icons by default, show on hover
     &.has-demo .floating-overlay {
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    &.has-demo:hover .floating-overlay {
       opacity: 1;
+    }
+
+    &.has-demo:hover .project-iframe {
+      filter: blur(0);
     }
   }
 

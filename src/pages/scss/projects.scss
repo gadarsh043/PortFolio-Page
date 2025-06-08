@@ -145,7 +145,7 @@
     // Project preview area - only for projects with live demos
     .project-preview {
       position: relative;
-      height: 120px;
+      height: 150px;
       overflow: hidden;
 
       .project-iframe {
@@ -155,7 +155,7 @@
         transform: scale(0.8);
         transform-origin: top left;
         width: 125%;
-        height: 125%;
+        height: 200%;
         pointer-events: none;
         filter: blur(0.5px);
         transition: filter 0.3s ease;

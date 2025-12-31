@@ -52,15 +52,9 @@ function Projects() {
         const projectsData = querySnapshot.docs.map(doc => doc.data());
         
         const sortedProjects = projectsData.sort((a, b) => {
-          const aHasDemo = hasLiveDemo(a);
-          const bHasDemo = hasLiveDemo(b);
-          
-          if (aHasDemo !== bHasDemo) {
-            return bHasDemo - aHasDemo;
-          }
-          return a.order - b.order;
+          return (a.order || 999) - (b.order || 999);
         });
-        
+        console.log(sortedProjects);
         setProjects(sortedProjects);
         setFilteredProjects(sortedProjects);
       } catch (error) {

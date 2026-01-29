@@ -50,11 +50,7 @@ function Projects() {
       try {
         const querySnapshot = await getDocs(collection(db, "projects"));
         const projectsData = querySnapshot.docs.map(doc => doc.data());
-        
-        const sortedProjects = projectsData.sort((a, b) => {
-          return (a.order || 999) - (b.order || 999);
-        });
-        console.log(sortedProjects);
+        const sortedProjects = [...projectsData].sort((a, b) => (a.order || 999) - (b.order || 999));
         setProjects(sortedProjects);
         setFilteredProjects(sortedProjects);
       } catch (error) {

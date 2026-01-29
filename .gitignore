@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Firebase Admin — never commit service account key
+.env
+.env.local
+*serviceAccount*.json
+*service-account*.json
+firebase-adminsdk*.json

@@ -35,4 +35,11 @@ export default [
       ],
     },
   },
+  {
+    files: ['update-firebase-projects.js'],
+    languageOptions: {
+      globals: globals.node,
+      sourceType: 'module',
+    },
+  },
 ]

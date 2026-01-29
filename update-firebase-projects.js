@@ -1,8 +1,10 @@
+/* eslint-env node */
 const PROJECTS_DATA = [
     {
         "name": "Portfolio Website",
         "description": "The codebase for this portfolio, featuring optimized frontend architecture and Google Analytics integration.",
         "order": 1,
+        "github": "https://github.com/gadarsh043/PortFolio-Page",
         "live": "https://adarshgella.com",
         "tech": "React • Vite • Firebase • Google Analytics • GitHub Pages",
         "category": "Showcase"
@@ -140,58 +142,72 @@ const PROJECTS_DATA = [
     }
 ];
 
-// ===== SCRIPT =====
-import { db } from './src/firebaseConfig.js';
-import { collection, getDocs, deleteDoc, doc, setDoc } from 'firebase/firestore';
+// ===== SCRIPT (Firebase Admin SDK — requires service account, bypasses Firestore rules) =====
+import 'dotenv/config';
+import { readFileSync } from 'fs';
+import { initializeApp, cert } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 
-async function replaceAllProjects() {
-    console.log('🔥 Starting Firebase project replacement...');
-    
-    try {
-        // Step 1: Delete all existing projects
-        console.log('🗑️ Deleting all existing projects...');
-        const querySnapshot = await getDocs(collection(db, 'projects'));
-        
-        const deletePromises = [];
-        querySnapshot.forEach((doc) => {
-            deletePromises.push(deleteDoc(doc.ref));
-        });
-        
-        await Promise.all(deletePromises);
-        console.log(`✅ Deleted ${querySnapshot.size} existing projects`);
-        
-        // Step 2: Add all new projects with custom document IDs
-        console.log('📤 Adding new projects with custom document IDs...');
-        const addPromises = [];
-        
-        PROJECTS_DATA.forEach((project) => {
-            // Use zero-padded order field as document ID (01, 02, 03, etc.)
-            const docId = project.order.toString().padStart(2, '0');
-            const docRef = doc(db, 'projects', docId);
-            addPromises.push(setDoc(docRef, project));
-            console.log(`📝 Setting project "${project.name}" with document ID: ${docId}`);
-        });
-        
-        await Promise.all(addPromises);
-        console.log(`✅ Added ${PROJECTS_DATA.length} new projects with custom IDs`);
-        
-        console.log('🎉 Successfully replaced all projects in Firebase!');
-        
-        // Step 3: Verify the update
-        console.log('🔍 Verifying projects...');
-        const newSnapshot = await getDocs(collection(db, 'projects'));
-        console.log(`📊 Total projects in Firebase: ${newSnapshot.size}`);
-        
-        // Show the document IDs
-        console.log('📋 Document IDs created:');
-        newSnapshot.forEach((doc) => {
-            console.log(`  ID: ${doc.id} -> Project: ${doc.data().name}`);
-        });
-        
-    } catch (error) {
-        console.error('❌ Error replacing projects:', error);
-    }
+const keyPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+if (!keyPath) {
+  console.error('❌ Missing GOOGLE_APPLICATION_CREDENTIALS.');
+  console.error('   Set it to the path of your Firebase service account JSON file.');
+  console.error('   Example: GOOGLE_APPLICATION_CREDENTIALS=./serviceAccountKey.json node update-firebase-projects.js');
+  console.error('   Or add GOOGLE_APPLICATION_CREDENTIALS=./serviceAccountKey.json to a .env file (do not commit .env).');
+  console.error('   Get the key: Firebase Console → Project Settings → Service Accounts → Generate new private key.');
+  process.exit(1);
 }
 
-// Run the script
+let serviceAccount;
+try {
+  serviceAccount = JSON.parse(readFileSync(keyPath, 'utf8'));
+} catch (e) {
+  console.error('❌ Failed to load service account file at', keyPath, ':', e.message);
+  process.exit(1);
+}
+
+initializeApp({ credential: cert(serviceAccount) });
+const db = getFirestore();
+
+async function replaceAllProjects() {
+  console.log('🔥 Starting Firebase project replacement (Admin SDK)...');
+
+  try {
+    // Step 1: Delete all existing projects
+    console.log('🗑️ Deleting all existing projects...');
+    const snapshot = await db.collection('projects').get();
+    const deletePromises = [];
+    snapshot.forEach((d) => {
+      deletePromises.push(db.collection('projects').doc(d.id).delete());
+    });
+    await Promise.all(deletePromises);
+    console.log(`✅ Deleted ${snapshot.size} existing projects`);
+
+    // Step 2: Add all new projects with custom document IDs
+    console.log('📤 Adding new projects with custom document IDs...');
+    const addPromises = [];
+    PROJECTS_DATA.forEach((project) => {
+      const docId = project.order.toString().padStart(2, '0');
+      addPromises.push(db.collection('projects').doc(docId).set(project));
+      console.log(`📝 Setting project "${project.name}" with document ID: ${docId}`);
+    });
+    await Promise.all(addPromises);
+    console.log(`✅ Added ${PROJECTS_DATA.length} new projects with custom IDs`);
+
+    console.log('🎉 Successfully replaced all projects in Firebase!');
+
+    // Step 3: Verify
+    const newSnapshot = await db.collection('projects').get();
+    console.log(`📊 Total projects in Firebase: ${newSnapshot.size}`);
+    console.log('📋 Document IDs created:');
+    newSnapshot.forEach((d) => {
+      console.log(`  ID: ${d.id} -> Project: ${d.data().name}`);
+    });
+  } catch (error) {
+    console.error('❌ Error replacing projects:', error);
+    process.exit(1);
+  }
+  process.exit(0);
+}
+
 replaceAllProjects();

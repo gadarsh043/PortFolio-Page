@@ -5,7 +5,7 @@ import lightMode from '../assets/light-mode.png';
 import brush from '../assets/brush.png';
 import bath from '../assets/bath.png';
 import breakfast from '../assets/breakfast.png';
-import classRoom from '../assets/classRoom.png';
+import classroomImage from '../assets/classroom.png';
 import foodTime from '../assets/foodTime.png';
 import sleep from '../assets/sleep.png';
 import gym from '../assets/gym.png';
@@ -55,12 +55,12 @@ function Circadian({ appearance, toggleAppearance }) {
         8: { icon: brush, text: 'Morning Me: Debug Mode' },
         9: { icon: bath, text: 'Shower Karaoke Time' },
         10: { icon: breakfast, text: 'Cereal > Life Decisions' },
-        11: { icon: classRoom, text: 'Pretending to Work Hard' },
-        12: { icon: classRoom, text: 'Daydreaming in Class' },
+        11: { icon: classroomImage, text: 'Pretending to Work Hard' },
+        12: { icon: classroomImage, text: 'Daydreaming in Class' },
         13: { icon: foodTime, text: 'Lunch: My True Love' },
-        14: { icon: classRoom, text: 'Counting Minutes to Freedom' },
-        15: { icon: classRoom, text: 'Brain.exe Has Crashed' },
-        16: { icon: classRoom, text: 'Doodling Masterpieces' },
+        14: { icon: classroomImage, text: 'Counting Minutes to Freedom' },
+        15: { icon: classroomImage, text: 'Brain.exe Has Crashed' },
+        16: { icon: classroomImage, text: 'Doodling Masterpieces' },
         17: { icon: socialMedia, text: 'Doomscrolling Begins' },
         18: { icon: socialMedia, text: 'Stuck in Meme Hell' },
         19: { icon: gym, text: 'Gym? Am I dedicated to this?' },

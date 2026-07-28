@@ -10,9 +10,18 @@ const PROJECTS_DATA = [
       "category": "AI & ML"
   },
   {
+    "name": "InvestIQ",
+    "description": "AI-guided investment platform built for the Goldman Sachs / UTD JSOM hackathon (3rd place). Features Kuber AI assistant with Groq streaming and ElevenLabs voice, deterministic portfolio math engine, Chrome extension for contextual market analysis, and transparent rebalancing with tax/fee impact receipts.",
+    "order": 2,
+    "github": "https://github.com/gadarsh043/InvestIQ",
+    "live": "https://invest-iq-kuber.netlify.app/",
+    "tech": "Next.js 16 • TypeScript • Supabase • Groq LLM • ElevenLabs TTS • Turborepo • Plasmo • Recharts • Tailwind CSS",
+    "category": "AI & ML"
+  },
+  {
       "name": "RoleLens AI",
       "description": "A RAG-powered resume analyzer that chunks your resume by section, embeds locally via sentence-transformers, stores in ChromaDB, and retrieves relevant chunks per query to generate structured fit reports (score, skill gaps, radar analysis) via Groq. Follow-up Q&A re-retrieves on every message for grounded responses.",
-      "order": 2,
+      "order": 3,
       "github": "https://github.com/gadarsh043/RoleLens-AI",
       "live": "https://rolelens.adarshgella.com",
       "tech": "React • FastAPI • ChromaDB • sentence-transformers • Groq LLM • Vite • RAG",
@@ -21,7 +30,7 @@ const PROJECTS_DATA = [
   {
       "name": "AdWeather Agent",
       "description": "An agentic AI app with an MCP server wrapping OpenWeatherMap API and a LangChain agent with tool calling that makes real-time ad campaign recommendations from live weather data. Built entirely in Cursor.",
-      "order": 3,
+      "order": 4,
       "github": "https://github.com/gadarsh043/AdWeather-Agent",
       "tech": "React • FastAPI • LangChain • MCP • Groq LLM • Docker",
       "category": "AI & ML"
@@ -29,7 +38,7 @@ const PROJECTS_DATA = [
   {
       "name": "N8N JobSearch & Lead Engine",
       "description": "An end-to-end automation pipeline that aggregates 500+ daily job leads, using local LLMs (Ollama/Qwen 2.5) for technical match scoring and personalized cover letter generation.",
-      "order": 4,
+      "order": 5,
       "github": "https://github.com/gadarsh043/N8N-JobSearch-Tool",
       "tech": "n8n • Ollama (LLM) • Node.js • Apify API • Google Sheets API • Docker",
       "category": "Automation & AI"
@@ -37,7 +46,7 @@ const PROJECTS_DATA = [
   {
       "name": "LeadFlow",
       "description": "Automated B2B lead generation pipeline: Hunter.io domain scraping, Groq/Llama 3 powered personalized cold email generation, Gmail delivery, and Google Sheets status tracking with end-to-end state management. Zero manual intervention.",
-      "order": 5,
+      "order": 6,
       "github": "https://github.com/gadarsh043/n8n-cold-outreach-workflow",
       "tech": "n8n • Groq LLM • Hunter.io API • Gmail API • Google Sheets API",
       "category": "Automation & AI"
@@ -45,7 +54,7 @@ const PROJECTS_DATA = [
   {
       "name": "VSCode Assist Plugin",
       "description": "A custom engineering tool that automates Jest test case generation by parsing TypeScript ASTs, slashing developer validation time by 73% (from 80 to 22 minutes). Adopted as a standard QA tool at Quinbay.",
-      "order": 6,
+      "order": 7,
       "github": "https://github.com/gadarsh043/QB-Assist-VsCode-Plugin",
       "tech": "TypeScript • VSCode Extension API • Jest Integration • Node.js",
       "category": "Utilities"
@@ -53,7 +62,7 @@ const PROJECTS_DATA = [
   {
       "name": "FitTrackAI",
       "description": "A comprehensive health-tracking dashboard with real-time synchronization and AI-powered physique insights. Reached 50+ active users.",
-      "order": 7,
+      "order": 8,
       "github": "https://github.com/gadarsh043/Fit-Track-AI",
       "live": "https://fit-track-ai.netlify.app/",
       "tech": "React • Firebase • Chart.js • Tailwind CSS • Vite • Google OAuth",
@@ -62,7 +71,7 @@ const PROJECTS_DATA = [
   {
       "name": "Personal AI Chatbot",
       "description": "An intelligent AI resume assistant using a YAML-based knowledge base to provide instantaneous answers to recruiters.",
-      "order": 8,
+      "order": 9,
       "github": "https://github.com/gadarsh043/personal-chatbot",
       "live": "https://personal-chatbot-q2wp.onrender.com/",
       "tech": "Flask • OpenAI API • YAML Configuration • Render",
@@ -71,7 +80,7 @@ const PROJECTS_DATA = [
   {
       "name": "Portfolio Website",
       "description": "The codebase for this portfolio, featuring optimized frontend architecture and Google Analytics integration.",
-      "order": 9,
+      "order": 10,
       "github": "https://github.com/gadarsh043/PortFolio-Page",
       "live": "https://adarshgella.com",
       "tech": "React • Vite • Firebase • Google Analytics • GitHub Pages",
@@ -80,7 +89,7 @@ const PROJECTS_DATA = [
   {
       "name": "Rizzing App",
       "description": "AI-driven response generator with OCR integration that processes 100+ profiles daily for context-aware social interactions.",
-      "order": 10,
+      "order": 11,
       "github": "https://github.com/gadarsh043/rizzing-backend",
       "live": "https://rizzing-frontend.netlify.app/",
       "tech": "React • Node.js • Tesseract.js OCR • OpenAI API • Railway",
@@ -89,7 +98,7 @@ const PROJECTS_DATA = [
   {
       "name": "AI Adventure Companion",
       "description": "An AI sidekick that utilizes location and weather data to generate personalized city escape itineraries.",
-      "order": 11,
+      "order": 12,
       "github": "https://github.com/gadarsh043/adventure-companion-backend",
       "live": "https://adventure-companion.netlify.app",
       "tech": "React • OpenStreetMap API • OpenWeatherMap API • Netlify Functions",
@@ -98,7 +107,7 @@ const PROJECTS_DATA = [
   {
       "name": "PhotoShare",
       "description": "A full-stack photo-sharing platform featuring MongoDB integration, user authentication, and secure file uploads.",
-      "order": 12,
+      "order": 13,
       "github": "https://github.com/gadarsh043/photoSharingApp",
       "live": "https://youtu.be/k5Rc1Fi5kbU?si=RCmhSil41hWrcb-A",
       "tech": "React • MongoDB • Express.js • File Upload • Authentication",
@@ -107,7 +116,7 @@ const PROJECTS_DATA = [
   {
       "name": "Blogger's Hub",
       "description": "A dynamic blogging platform with real-time updates powered by Firebase Firestore.",
-      "order": 13,
+      "order": 14,
       "github": "https://github.com/gadarsh043/blogPage",
       "live": "https://g-adarsh-sonu.netlify.app/",
       "tech": "Vue.js • Firebase Firestore • Real-time Database • Netlify",
@@ -116,7 +125,7 @@ const PROJECTS_DATA = [
   {
       "name": "QuinBook",
       "description": "A lightweight social networking platform demonstrating advanced component architecture in Vue.js.",
-      "order": 14,
+      "order": 15,
       "github": "https://github.com/gadarsh043/QuinBook-UI",
       "live": "https://drive.google.com/file/d/1AX8LXC3HQwssu-Yb2lT6jEcIvIt9uXS8/view?usp=sharing",
       "tech": "Vue.js • Component Architecture • Social Media Features",
@@ -125,7 +134,7 @@ const PROJECTS_DATA = [
   {
       "name": "3D Tic-Tac-Toe",
       "description": "Interactive holographic game featuring 3D graphics and an AI opponent algorithm.",
-      "order": 15,
+      "order": 16,
       "github": "https://github.com/gadarsh043/3D-Tic-Tac-Toe",
       "live": "https://3d-tic-tac.netlify.app/",
       "tech": "React • 3D Graphics • AI Algorithm • Game Logic",
@@ -134,7 +143,7 @@ const PROJECTS_DATA = [
   {
       "name": "IP Tracker",
       "description": "Geospatial tool for real-time IP tracking and mapping via external Geolocation APIs.",
-      "order": 16,
+      "order": 17,
       "github": "https://github.com/gadarsh043/ip-tracker",
       "live": "https://ip-tracking-website.netlify.app",
       "tech": "Vue.js • IP Geolocation API • Maps Integration",
@@ -143,7 +152,7 @@ const PROJECTS_DATA = [
   {
       "name": "Online Notepad",
       "description": "PWA-ready secure notepad with LocalStorage auto-save functionality for offline use.",
-      "order": 17,
+      "order": 18,
       "github": "https://github.com/gadarsh043/online-notepad",
       "live": "https://autosave-notepad.netlify.app/",
       "tech": "React • LocalStorage • Auto-save • PWA",
@@ -152,7 +161,7 @@ const PROJECTS_DATA = [
   {
       "name": "TakeInterview",
       "description": "Administrative UI for managing technical interviews, focusing on high-performance UX design.",
-      "order": 18,
+      "order": 19,
       "github": "https://github.com/gadarsh043/TakeInterview-UI",
       "tech": "Vue.js • UI/UX Design • Admin Panel",
       "category": "Web Apps"
@@ -160,7 +169,7 @@ const PROJECTS_DATA = [
   {
       "name": "Coffee Billing App",
       "description": "Efficient POS billing interface for tracking orders and managing shop transactions.",
-      "order": 19,
+        "order": 20,
       "github": "https://github.com/gadarsh043/CustomerBillingSystem-UI",
       "tech": "Vue.js • Billing System • Order Management",
       "category": "Web Apps"
@@ -168,7 +177,7 @@ const PROJECTS_DATA = [
   {
       "name": "CowBull Game",
       "description": "Interactive 'Mastermind' style guessing game focusing on clean game logic and UI transitions.",
-      "order": 20,
+      "order": 21,
       "github": "https://github.com/gadarsh043/cow_bull_game",
       "live": "https://cow-bull-game.netlify.app/",
       "tech": "Vue.js • Game Logic • Local Storage",

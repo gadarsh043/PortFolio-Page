@@ -4,7 +4,7 @@ const PROJECTS_DATA = [
     "name": "LocalPRO Hub",
     "description": "Production platform I built as sole engineer for LocalPRO Realty, used by 110+ real estate agents. Covers the full listing lifecycle (441 MLS fields pre-filled from NTREIS, Whisper voice intake, AI listing copy), BrokerMint transaction automation, commission and revenue share dashboards, and an MV3 Chrome extension on the Web Store. Replaced 5 tools on ~$65/month of infrastructure.",
     "order": 1,
-    "live": "https://chromewebstore.google.com/detail/localpro-hub-matrix-assis/mndchhiiandfgnodiaakeppofhpodffl",
+    "live": "https://hub.localprorealty.com/extension",
     "tech": "React • TypeScript • FastAPI • Supabase • Groq LLM • Whisper • n8n • Plasmo • Railway • Netlify",
     "category": "AI & ML"
   },
